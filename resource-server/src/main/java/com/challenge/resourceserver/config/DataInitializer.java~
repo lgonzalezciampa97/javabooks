@@ -1,0 +1,27 @@
+package com.challenge.resourceserver.config;
+
+import com.challenge.resourceserver.model.Book;
+import com.challenge.resourceserver.repository.BookRepository;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class DataInitializer {
+
+    @Bean
+    public CommandLineRunner initData(BookRepository bookRepository) {
+        return args -> {
+            bookRepository.save(new Book(null, "Cien años de soledad", "Gabriel García Márquez", "Realismo mágico", "La historia de la familia Buendía", 471));
+            bookRepository.save(new Book(null, "1984", "George Orwell", "Distopía", "Una sociedad bajo vigilancia totalitaria", 328));
+            bookRepository.save(new Book(null, "El Principito", "Antoine de Saint-Exupéry", "Fábula", "Un pequeño príncipe recorre planetas", 96));
+            bookRepository.save(new Book(null, "Don Quijote de la Mancha", "Miguel de Cervantes", "Novela", "Las aventuras de un hidalgo loco y su escudero", 863));
+            bookRepository.save(new Book(null, "Fahrenheit 451", "Ray Bradbury", "Ciencia ficción", "Un futuro donde los libros están prohibidos", 249));
+            bookRepository.save(new Book(null, "Orgullo y prejuicio", "Jane Austen", "Romance", "Una historia de amor y sociedad en Inglaterra", 432));
+            bookRepository.save(new Book(null, "Crónica de una muerte anunciada", "Gabriel García Márquez", "Novela", "Un asesinato anunciado por todo el pueblo", 144));
+            bookRepository.save(new Book(null, "La Metamorfosis", "Franz Kafka", "Existencialismo", "Un hombre se convierte en insecto", 201));
+            bookRepository.save(new Book(null, "Los juegos del hambre", "Suzanne Collins", "Distopía", "Una lucha por sobrevivir en una arena mortal", 374));
+            bookRepository.save(new Book(null, "Rayuela", "Julio Cortázar", "Narrativa", "Una novela que rompe las reglas de la narrativa tradicional", 666));
+        };
+    }
+}

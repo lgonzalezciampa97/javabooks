@@ -18,13 +18,13 @@ public class AuthorizationServerConfig {
     public RegisteredClientRepository registeredClientRepository() {
         RegisteredClient registeredClient = RegisteredClient.withId(UUID.randomUUID().toString())
                 .clientId("javabooks-client")
-                .clientSecret("{noop}client-secret") // Usa {noop} solo para pruebas
+                .clientSecret("{noop}client-secret")
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
                 .redirectUri("http://localhost:8081/login/oauth2/code/javabooks-client")
                 .scope(OidcScopes.OPENID)
-                .scope("read")
-                .scope("write")
+                .scope("libros.read")
+                .scope("libros.write")
                 .build();
 
         return new InMemoryRegisteredClientRepository(registeredClient);

@@ -6,6 +6,8 @@ spring:
     name: javabooks-app
   profiles:
     active: dev
+  main:
+    allow-bean-definition-overriding: true
   datasource:
     url: jdbc:h2:mem:java_books
     driver-class-name: org.h2.Driver
