@@ -6,6 +6,15 @@ spring:
     name: auth-server
   security:
     oauth2:
+      authorization:
+        clients:
+          javabooks-client:
+            registration:
+              client-id: javabooks-client
+              client-secret: client-secret
+              redirect-uri: http://localhost:8081/login/oauth2/code/javabooks-client
+              authorization-grant-type: authorization_code
+              scope: openid, libros.read, libros.write
       authorization-server:
         issuer: http://localhost:9000
 

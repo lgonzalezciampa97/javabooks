@@ -1,4 +1,0 @@
-package com.challenge.resourceserver.service;
-
-public class BookService {
-}

@@ -1,4 +1,0 @@
-package com.challenge.auth.config;
-
-public class CustomTokenClaims {
-}

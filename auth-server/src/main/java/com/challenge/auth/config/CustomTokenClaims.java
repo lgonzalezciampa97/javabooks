@@ -17,15 +17,12 @@ public class CustomTokenClaims implements OAuth2TokenCustomizer<JwtEncodingConte
     public void customize(JwtEncodingContext context) {
         Authentication principal = context.getPrincipal();
 
-        // Agregar roles como claim
         List<String> roles = principal.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.toList());
 
         context.getClaims().claim("roles", roles);
 
-        // Agregar claim personalizado 'categorias'
-        // Aquí podrías extraer desde una base de datos o definir estáticamente según usuario
         if (principal.getName().equals("admin")) {
             context.getClaims().claim("categorias", List.of("Ficción", "Tecnología", "Historia"));
         } else {
